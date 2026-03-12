@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BadSide RP — Catalogue armes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="topbar">
+      <nav class="nav">
+        <div class="brand">
+          <img class="brand-logo" src="assets/badside-logo.png" alt="Logo BadSide">
+          <div class="brand-text">BadSide RP<small>Portail officiel du règlement</small></div>
+        </div>
+        <button class="menu-toggle">Menu</button>
+
+      <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="lexique.html">Lexique RP</a>
+        <a href="general.html">Général</a>
+        <a href="illegal.html">Illégal</a>
+        <a href="zones.html">Zones</a>
+        <a href="mortrp.html">Mort RP</a>
+        <a href="services.html">LSPD / EMS</a>
+        <a href="armes.html">Catalogue</a>
+      </div>
+
+      </nav>
+    </div>
+
+
+  <main class="page">
+    <div class="page-head">
+      <div>
+        <div class="breadcrumb">BadSide / Règlement</div>
+        <h1>Catalogue d’armes</h1>
+      </div>
+      <p class="lead" style="max-width:620px;margin:0">Un affichage clair du marché noir par type de groupe.</p>
+    </div>
+
+    <section class="catalog-layout">
+      <aside class="catalog-side">
+        <div class="catalog-title">
+          <h2><span>Catalogue</span> armes</h2>
+          <p>Présentation claire du marché noir selon le type de groupe.</p>
+        </div>
+        <div class="weapon-menu">
+          <button class="weapon-btn active" data-weapon="civil">🔹 Civil</button>
+          <button class="weapon-btn" data-weapon="gang">🔸 Gang</button>
+          <button class="weapon-btn" data-weapon="orga">⚜️ Organisation</button>
+        </div>
+      </aside>
+
+      <div class="catalog-main">
+        <div class="weapon-panel active" id="weapon-civil">
+          <div class="stats">
+            <div class="stat"><small>Accès</small><b>Civil / petite frappe</b></div>
+            <div class="stat"><small>Mentalité</small><b>Défense simple</b></div>
+          </div>
+          <div class="table-card">
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Arme</th><th>Type</th><th>Prix</th></tr></thead>
+                <tbody>
+                  <tr><td>P7</td><td>Arme légère</td><td>15 000$</td></tr>
+                  <tr><td>Beretta</td><td>Arme légère</td><td>18 000$</td></tr>
+                  <tr><td>Pistolet lourd</td><td>Arme de poing</td><td>25 000$</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="weapon-panel" id="weapon-gang">
+          <div class="stats">
+            <div class="stat"><small>Accès</small><b>Gang officiel</b></div>
+            <div class="stat"><small>Mentalité</small><b>Territoire / intimidation</b></div>
+          </div>
+          <div class="table-card">
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Arme</th><th>Type</th><th>Prix</th></tr></thead>
+                <tbody>
+                  <tr><td>Uzi</td><td>SMG</td><td>45 000$</td></tr>
+                  <tr><td>Tec-9</td><td>SMG</td><td>50 000$</td></tr>
+                  <tr><td>Skorpion</td><td>SMG</td><td>55 000$</td></tr>
+                  <tr><td>Pompe</td><td>Fusil à pompe</td><td>60 000$</td></tr>
+                  <tr><td>Cal .50</td><td>Arme lourde courte</td><td>75 000$</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="weapon-panel" id="weapon-orga">
+          <div class="stats">
+            <div class="stat"><small>Accès</small><b>Organisation criminelle</b></div>
+            <div class="stat"><small>Mentalité</small><b>Structure / puissance</b></div>
+          </div>
+          <div class="table-card">
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Arme</th><th>Type</th><th>Prix</th></tr></thead>
+                <tbody>
+                  <tr><td>AK</td><td>Fusil d’assaut</td><td>120 000$</td></tr>
+                  <tr><td>ADP</td><td>Fusil compact</td><td>110 000$</td></tr>
+                  <tr><td>G36C</td><td>Fusil d’assaut</td><td>130 000$</td></tr>
+                  <tr><td>Gilet pare-balles</td><td>Équipement</td><td>10 000$</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="footer">
+    <div class="footer-card">BadSide RP — Portail officiel du règlement</div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
