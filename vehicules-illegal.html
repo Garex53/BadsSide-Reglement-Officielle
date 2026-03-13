@@ -14,12 +14,12 @@
     }
 
     .vehicles-header {
-      background: #ececec;
-      border: 2px solid #2d5bff;
-      border-radius: 10px;
-      padding: 24px 18px 12px;
+      background: #f5f5f5;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 28px 20px 18px;
       text-align: center;
-      color: #111;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.22);
     }
 
     .vehicles-header h1 {
@@ -27,80 +27,47 @@
       font-size: 3rem;
       font-weight: 900;
       letter-spacing: 1px;
+      color: #111;
       line-height: 1.1;
-    }
-
-    .vehicles-header .gang {
-      color: #e7c14f;
-    }
-
-    .vehicles-header .mafia {
-      color: #f08b00;
-    }
-
-    .vehicles-header .cartel {
-      color: #8e7bd2;
+      text-transform: uppercase;
     }
 
     .vehicles-subtitle {
-      margin-top: 10px;
-      font-size: 1.2rem;
-      font-weight: 900;
+      margin-top: 12px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #222;
     }
 
-    .vehicles-subtitle .lore {
-      color: #173cff;
-    }
-
-    .vehicles-subtitle .illegal {
-      color: #ff1f1f;
+    .vehicles-subtitle strong {
+      color: #000;
     }
 
     .legend-card {
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px;
+      border-radius: 16px;
       padding: 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.16);
     }
 
     .legend-card h2 {
       margin: 0 0 12px;
+      color: #fff;
     }
 
-    .legend-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
+    .legend-text {
+      color: #d7d7d7;
+      line-height: 1.6;
     }
 
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,0.04);
-      padding: 8px 12px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.06);
+    .legend-text strong {
+      color: #fff;
     }
-
-    .legend-color {
-      width: 16px;
-      height: 16px;
-      border-radius: 4px;
-      border: 1px solid rgba(0,0,0,0.25);
-      display: inline-block;
-    }
-
-    .c-gang { background: #e1d390; }
-    .c-mafia { background: #d98d1e; }
-    .c-cartel { background: #8d7ac5; }
-    .c-special { background: #173cff; }
-    .c-haut { background: #ff1e1e; }
-    .c-valid { background: #34ff34; }
 
     .vehicle-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
       gap: 20px;
       align-items: start;
     }
@@ -108,75 +75,88 @@
     .vehicle-card {
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px;
+      border-radius: 16px;
       overflow: hidden;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.16);
     }
 
     .vehicle-card h2 {
       margin: 0;
-      padding: 12px 14px;
-      background: #000;
+      padding: 14px 16px;
+      background: #050505;
       color: #fff;
+      font-size: 1rem;
       text-transform: uppercase;
-      font-size: 0.95rem;
       letter-spacing: 0.5px;
     }
 
     .table-wrap {
       overflow-x: auto;
-      background: #dbe1ea;
+      background: #eceff3;
+      padding: 14px;
     }
 
     .vehicle-table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 300px;
+      min-width: 320px;
+      background: #dfe4ea;
+      border-radius: 12px;
+      overflow: hidden;
     }
 
     .vehicle-table th,
     .vehicle-table td {
-      border: 1px solid #3b3b3b;
+      border: 1px solid #5a5f66;
       text-align: center;
-      height: 30px;
-      font-size: 0.9rem;
+      height: 34px;
+      font-size: 0.95rem;
     }
 
     .vehicle-table th {
-      background: #cfd6df;
+      background: #cfd6de;
       color: #111;
-      font-weight: 700;
-      padding: 4px 6px;
+      font-weight: 800;
+      padding: 6px;
     }
 
     .vehicle-name {
-      background: #dbe1ea;
+      background: #dfe4ea;
       color: #111;
       text-align: left;
-      padding: 0 10px;
+      padding: 0 12px;
       font-style: italic;
-      min-width: 170px;
+      min-width: 180px;
     }
 
-    .rank-cell {
-      width: 22px;
-      min-width: 22px;
-      background: #dbe1ea;
-      padding: 0;
+    .status-cell {
+      width: 42px;
+      min-width: 42px;
+      font-weight: 900;
+      font-size: 1rem;
+      background: #f7f9fb;
+      color: #111;
     }
 
-    .gang { background: #e1d390; }
-    .mafia { background: #d98d1e; }
-    .cartel { background: #8d7ac5; }
-    .special { background: #173cff; }
-    .haut { background: #ff1e1e; }
-    .valid { background: #34ff34; }
+    .yes {
+      color: #0f9d58;
+    }
+
+    .no {
+      color: #c62828;
+    }
 
     .note-box {
       background: rgba(255,255,255,0.04);
       border-left: 4px solid #c89b3c;
       border-radius: 12px;
       padding: 16px 18px;
+      color: #ddd;
       line-height: 1.6;
+    }
+
+    .note-box strong {
+      color: #fff;
     }
 
     @media (max-width: 768px) {
@@ -186,6 +166,10 @@
 
       .vehicle-grid {
         grid-template-columns: 1fr;
+      }
+
+      .vehicle-name {
+        min-width: 150px;
       }
     }
   </style>
@@ -219,26 +203,17 @@
     <div class="vehicles-wrapper">
 
       <div class="vehicles-header">
-        <h1>
-          <span class="gang">Gang</span> -
-          <span class="mafia">MAFIA</span> -
-          <span class="cartel">Cartel</span>
-        </h1>
+        <h1>Gang - Mafia - Cartel</h1>
         <div class="vehicles-subtitle">
-          <span class="lore">Lore Compatible ONLY</span> -
-          <span class="illegal">INTERDIT ILLEGAL</span>
+          <strong>Lore Compatible ONLY</strong> - <strong>INTERDIT ILLEGAL</strong>
         </div>
       </div>
 
       <div class="legend-card">
         <h2 class="section-title">Lecture de la hiérarchie</h2>
-        <div class="legend-list">
-          <div class="legend-item"><span class="legend-color c-gang"></span> Autorisé Gang</div>
-          <div class="legend-item"><span class="legend-color c-mafia"></span> Autorisé Mafia</div>
-          <div class="legend-item"><span class="legend-color c-cartel"></span> Autorisé Cartel</div>
-          <div class="legend-item"><span class="legend-color c-special"></span> Exception / validation</div>
-          <div class="legend-item"><span class="legend-color c-haut"></span> Très haut de gamme</div>
-          <div class="legend-item"><span class="legend-color c-valid"></span> Cas validé</div>
+        <div class="legend-text">
+          <strong>✔</strong> = véhicule autorisé pour cette organisation<br>
+          <strong>✖</strong> = véhicule non autorisé pour cette organisation
         </div>
       </div>
 
@@ -255,28 +230,27 @@
                   <th>G</th>
                   <th>M</th>
                   <th>C</th>
-                  <th>+</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td class="vehicle-name">Asterope</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Cinquemila</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Cognoscenti</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Cognoscenti 55</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Deity</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Emperor</td><td class="rank-cell special"></td><td class="rank-cell special"></td><td class="rank-cell special"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Fugitive</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Glendale</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Glendale Custom</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Primo</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Primo Custom</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Rhinehart</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Schafter</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Schafter LWB</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Schafter V12</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Stafford</td><td class="rank-cell special"></td><td class="rank-cell special"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Super Diamond</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Surge</td><td class="rank-cell haut"></td><td class="rank-cell haut"></td><td class="rank-cell haut"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Asterope</td><td class="status-cell yes">✔</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Cinquemila</td><td class="status-cell no">✖</td><td class="status-cell yes">✔</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Cognoscenti</td><td class="status-cell no">✖</td><td class="status-cell yes">✔</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Cognoscenti 55</td><td class="status-cell no">✖</td><td class="status-cell yes">✔</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Deity</td><td class="status-cell no">✖</td><td class="status-cell yes">✔</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Emperor</td><td class="status-cell yes">✔</td><td class="status-cell yes">✔</td><td class="status-cell yes">✔</td></tr>
+                <tr><td class="vehicle-name">Fugitive</td><td class="status-cell no">✖</td><td class="status-cell yes">✔</td><td class="status-cell yes">✔</td></tr>
+                <tr><td class="vehicle-name">Glendale</td><td class="status-cell yes">✔</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Glendale Custom</td><td class="status-cell yes">✔</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Primo</td><td class="status-cell yes">✔</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Primo Custom</td><td class="status-cell yes">✔</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Rhinehart</td><td class="status-cell yes">✔</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Schafter</td><td class="status-cell no">✖</td><td class="status-cell yes">✔</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Schafter LWB</td><td class="status-cell no">✖</td><td class="status-cell yes">✔</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Schafter V12</td><td class="status-cell no">✖</td><td class="status-cell yes">✔</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Stafford</td><td class="status-cell yes">✔</td><td class="status-cell yes">✔</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Super Diamond</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td><td class="status-cell yes">✔</td></tr>
+                <tr><td class="vehicle-name">Surge</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td></tr>
               </tbody>
             </table>
           </div>
@@ -293,24 +267,23 @@
                   <th>G</th>
                   <th>M</th>
                   <th>C</th>
-                  <th>+</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td class="vehicle-name">Cognoscenti Cabrio</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Exemplar</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">F620</td><td class="rank-cell haut"></td><td class="rank-cell haut"></td><td class="rank-cell haut"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Felon</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Felon GT</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Jackal</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Oracle</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Oracle XS</td><td class="rank-cell gang"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Sentinel</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Windsor</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Zion</td><td class="rank-cell haut"></td><td class="rank-cell haut"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Zion Cabrio</td><td class="rank-cell haut"></td><td class="rank-cell haut"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Scharmann</td><td class="rank-cell gang"></td><td class="rank-cell gang"></td><td class="rank-cell gang"></td><td class="rank-cell gang"></td></tr>
-                <tr><td class="vehicle-name">Buffalo STX</td><td class="rank-cell gang"></td><td class="rank-cell gang"></td><td class="rank-cell gang"></td><td class="rank-cell gang"></td></tr>
+                <tr><td class="vehicle-name">Cognoscenti Cabrio</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Exemplar</td><td class="status-cell no">✖</td><td class="status-cell yes">✔</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">F620</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Felon</td><td class="status-cell no">✖</td><td class="status-cell yes">✔</td><td class="status-cell yes">✔</td></tr>
+                <tr><td class="vehicle-name">Felon GT</td><td class="status-cell no">✖</td><td class="status-cell yes">✔</td><td class="status-cell yes">✔</td></tr>
+                <tr><td class="vehicle-name">Jackal</td><td class="status-cell no">✖</td><td class="status-cell yes">✔</td><td class="status-cell yes">✔</td></tr>
+                <tr><td class="vehicle-name">Oracle</td><td class="status-cell no">✖</td><td class="status-cell yes">✔</td><td class="status-cell yes">✔</td></tr>
+                <tr><td class="vehicle-name">Oracle XS</td><td class="status-cell yes">✔</td><td class="status-cell yes">✔</td><td class="status-cell yes">✔</td></tr>
+                <tr><td class="vehicle-name">Sentinel</td><td class="status-cell no">✖</td><td class="status-cell yes">✔</td><td class="status-cell yes">✔</td></tr>
+                <tr><td class="vehicle-name">Windsor</td><td class="status-cell no">✖</td><td class="status-cell yes">✔</td><td class="status-cell yes">✔</td></tr>
+                <tr><td class="vehicle-name">Zion</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Zion Cabrio</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Scharmann</td><td class="status-cell yes">✔</td><td class="status-cell yes">✔</td><td class="status-cell yes">✔</td></tr>
+                <tr><td class="vehicle-name">Buffalo STX</td><td class="status-cell yes">✔</td><td class="status-cell yes">✔</td><td class="status-cell yes">✔</td></tr>
               </tbody>
             </table>
           </div>
@@ -327,109 +300,24 @@
                   <th>G</th>
                   <th>M</th>
                   <th>C</th>
-                  <th>+</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td class="vehicle-name">10F</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
-                <tr><td class="vehicle-name">10F Widebody</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
-                <tr><td class="vehicle-name">8F Drafter</td><td class="rank-cell special"></td><td class="rank-cell special"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">9F</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
-                <tr><td class="vehicle-name">9F Cabrio</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
-                <tr><td class="vehicle-name">Alpha</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Banshee</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
-                <tr><td class="vehicle-name">Bestia GTS</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
-                <tr><td class="vehicle-name">Buffalo</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Buffalo S</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Calico GTF</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
-                <tr><td class="vehicle-name">Carbonizzare</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
-                <tr><td class="vehicle-name">Comet</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
-                <tr><td class="vehicle-name">Comet S2</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
-                <tr><td class="vehicle-name">Cypher</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Feltzer</td><td class="rank-cell special"></td><td class="rank-cell special"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Futo</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Growler</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
-                <tr><td class="vehicle-name">Jugular</td><td class="rank-cell gang"></td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Kuruma</td><td class="rank-cell special"></td><td class="rank-cell special"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Neon</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
-                <tr><td class="vehicle-name">Paragon R</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell gang"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Pariah</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
-                <tr><td class="vehicle-name">Sultan</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Sultan Classic</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
-                <tr><td class="vehicle-name">V-STR</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">ZR350</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-
-        <!-- SUV -->
-        <article class="vehicle-card">
-          <h2>Véhicule : SUV</h2>
-          <div class="table-wrap">
-            <table class="vehicle-table">
-              <thead>
-                <tr>
-                  <th>Véhicule</th>
-                  <th>G</th>
-                  <th>M</th>
-                  <th>C</th>
-                  <th>+</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td class="vehicle-name">Astron</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Baller</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Baller S</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Baller STD</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Baller LE LWB</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Baller ST</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">BeeJay XL</td><td class="rank-cell special"></td><td class="rank-cell special"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Cavalcade</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Cavalcade XL</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Contender</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Dubsta</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Dubsta 6x6</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">FQ2</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Granger</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
-                <tr><td class="vehicle-name">Granger 3600LX</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
-                <tr><td class="vehicle-name">Gresley</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Huntley S</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">I-Wagen</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
-                <tr><td class="vehicle-name">Jubilee</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-
-        <!-- VANS -->
-        <article class="vehicle-card">
-          <h2>Véhicule : Vans</h2>
-          <div class="table-wrap">
-            <table class="vehicle-table">
-              <thead>
-                <tr>
-                  <th>Véhicule</th>
-                  <th>G</th>
-                  <th>M</th>
-                  <th>C</th>
-                  <th>+</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td class="vehicle-name">Bison</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Bobcat XL</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Burrito Gang</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Camper</td><td class="rank-cell special"></td><td class="rank-cell special"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Journey</td><td class="rank-cell special"></td><td class="rank-cell special"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Minivan</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Minivan Custom</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Paradise</td><td class="rank-cell special"></td><td class="rank-cell special"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Rumpo Custom</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Speedo</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Speedo Custom</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Surfer</td><td class="rank-cell special"></td><td class="rank-cell special"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
-                <tr><td class="vehicle-name">Youga</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">10F</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">10F Widebody</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">8F Drafter</td><td class="status-cell yes">✔</td><td class="status-cell yes">✔</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">9F</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">9F Cabrio</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Alpha</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td><td class="status-cell yes">✔</td></tr>
+                <tr><td class="vehicle-name">Banshee</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Bestia GTS</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Buffalo</td><td class="status-cell yes">✔</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Buffalo S</td><td class="status-cell yes">✔</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Calico GTF</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Carbonizzare</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Comet</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Comet S2</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td></tr>
+                <tr><td class="vehicle-name">Cypher</td><td class="status-cell no">✖</td><td class="status-cell no">✖</td><td class="status-cell yes">✔</td></tr>
               </tbody>
             </table>
           </div>
@@ -438,8 +326,8 @@
       </div>
 
       <div class="note-box">
-        Cette version remet bien la logique de hiérarchie : les véhicules très haut de gamme ne sont plus “ouverts à tout le monde”.
-        Un gang regarde sa colonne, une mafia la sienne, un cartel la sienne, et les cas spéciaux restent à validation.
+        <strong>Important :</strong> un véhicule marqué <strong>✖</strong> n’est pas autorisé pour cette catégorie d’organisation.
+        Cela permet d’éviter qu’un <strong>gang</strong> roule avec des véhicules trop haut de gamme ou incohérents avec le lore.
       </div>
 
     </div>
