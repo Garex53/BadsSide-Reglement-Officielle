@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Règlement - Véhicules Gang / Mafia / Cartel</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0d0d0d, #161616);
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    .page-header {
+      background: linear-gradient(135deg, rgba(140, 0, 0, 0.95), rgba(20, 20, 20, 0.95));
+      padding: 60px 20px 40px;
+      text-align: center;
+      border-bottom: 3px solid #c89b3c;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    }
+
+    .page-header h1 {
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .page-header p {
+      color: #ddd;
+      font-size: 1.05rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .warning-box {
+      width: 90%;
+      max-width: 1200px;
+      margin: 30px auto 0;
+      background: rgba(120, 0, 0, 0.18);
+      border: 1px solid rgba(255, 70, 70, 0.45);
+      border-left: 6px solid #ff4747;
+      border-radius: 12px;
+      padding: 18px 20px;
+      color: #fff;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1400px;
+      margin: 40px auto 60px;
+    }
+
+    .intro {
+      margin-bottom: 30px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 20px;
+      color: #ddd;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 22px;
+    }
+
+    .category-card {
+      background: rgba(20, 20, 20, 0.95);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .category-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.35);
+    }
+
+    .category-card h2 {
+      font-size: 1.2rem;
+      color: #c89b3c;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      text-transform: uppercase;
+    }
+
+    .vehicle-list {
+      list-style: none;
+      columns: 1;
+    }
+
+    .vehicle-list li {
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: #f0f0f0;
+      font-size: 0.96rem;
+    }
+
+    .vehicle-list li:last-child {
+      border-bottom: none;
+    }
+
+    .footer-note {
+      margin-top: 35px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 20px;
+      color: #d9d9d9;
+    }
+
+    .footer-note strong {
+      color: #fff;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin: 0 auto 25px;
+      padding: 12px 20px;
+      background: #c89b3c;
+      color: #111;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.2s ease;
+    }
+
+    .back-btn:hover {
+      background: #e2b24b;
+    }
+
+    .top-link-wrap {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .page-header h1 {
+        font-size: 2rem;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="page-header">
+    <h1>Gang - Mafia - Cartel</h1>
+    <p>Liste officielle des véhicules autorisés pour les organisations illégales, dans le respect du lore du serveur.</p>
+  </header>
+
+  <div class="warning-box">
+    Lore Compatible ONLY — INTERDIT ILLEGAL
+  </div>
+
+  <main class="container">
+    <div class="top-link-wrap">
+      <a href="reglement.html" class="back-btn">← Retour au règlement</a>
+    </div>
+
+    <section class="intro">
+      <p>
+        Cette page regroupe les <strong>véhicules autorisés</strong> pour les factions de type
+        <strong>Gang, Mafia et Cartel</strong>. Tout véhicule ne figurant pas dans cette liste
+        peut être considéré comme <strong>non autorisé</strong> ou soumis à validation staff.
+      </p>
+    </section>
+
+    <section class="category-grid">
+
+      <div class="category-card">
+        <h2>Véhicules : Sedans</h2>
+        <ul class="vehicle-list">
+          <li>Asterope</li>
+          <li>Cinquemila</li>
+          <li>Cognoscenti</li>
+          <li>Cognoscenti 55</li>
+          <li>Deity</li>
+          <li>Emperor</li>
+          <li>Fugitive</li>
+          <li>Glendale</li>
+          <li>Glendale Custom</li>
+          <li>Primo</li>
+          <li>Primo Custom</li>
+          <li>Rhinehart</li>
+          <li>Schafter</li>
+          <li>Schafter LWB</li>
+          <li>Schafter V12</li>
+          <li>Stafford</li>
+          <li>Super Diamond</li>
+          <li>Surge</li>
+          <li>Tailgater S</li>
+          <li>Warrener</li>
+          <li>Washington</li>
+          <li>Impaler SZ</li>
+        </ul>
+      </div>
+
+      <div class="category-card">
+        <h2>Véhicules : Coupés</h2>
+        <ul class="vehicle-list">
+          <li>Cognoscenti Cabrio</li>
+          <li>Exemplar</li>
+          <li>F620</li>
+          <li>Felon</li>
+          <li>Felon GT</li>
+          <li>Jackal</li>
+          <li>Oracle</li>
+          <li>Oracle XS</li>
+          <li>Sentinel Classique</li>
+          <li>Sentinel</li>
+          <li>Sentinel XS</li>
+          <li>Windsor</li>
+          <li>Windsor Drop</li>
+          <li>Zion</li>
+          <li>Zion Cabrio</li>
+          <li>Scharmann</li>
+          <li>Buffalo STX</li>
+        </ul>
+      </div>
+
+      <div class="category-card">
+        <h2>Véhicules : Sports</h2>
+        <ul class="vehicle-list">
+          <li>10F</li>
+          <li>10F Widebody</li>
+          <li>8F Drafter</li>
+          <li>9F</li>
+          <li>9F Cabrio</li>
+          <li>Alpha</li>
+          <li>Banshee</li>
+          <li>Bestia GTS</li>
+          <li>Buffalo</li>
+          <li>Buffalo S</li>
+          <li>Calico GTF</li>
+          <li>Carbonizzare</li>
+          <li>Comet</li>
+          <li>Comet Retro Custom</li>
+          <li>Comet S2</li>
+          <li>Comet S2 Cabrio</li>
+          <li>Comet Safari</li>
+          <li>Comet SR</li>
+          <li>Coquette</li>
+          <li>Coquette D10</li>
+          <li>Corsita</li>
+          <li>Cypher</li>
+          <li>Elegy Retro Custom</li>
+          <li>Elegy RH8</li>
+          <li>Euros</li>
+          <li>Feltzer</li>
+          <li>Flash GT</li>
+          <li>Furore GT</li>
+          <li>Fusilade</li>
+          <li>Futo</li>
+          <li>Futo GTX</li>
+          <li>GB200</li>
+          <li>Growler</li>
+          <li>Imorgon</li>
+          <li>Issi Sport</li>
+          <li>Itali GTO</li>
+          <li>Itali RSX</li>
+          <li>Jester</li>
+          <li>Jester (Racecar)</li>
+          <li>Jester Classic</li>
+          <li>Jester RR</li>
+          <li>Jugular</li>
+          <li>Khamelion</li>
+          <li>Komoda</li>
+          <li>Kuruma</li>
+          <li>Locust</li>
+          <li>Lynx</li>
+          <li>Massacro</li>
+          <li>Neo</li>
+          <li>Neon</li>
+          <li>Omnis</li>
+          <li>Omnis e-GT</li>
+          <li>Paragon R</li>
+          <li>Pariah</li>
+          <li>Penumbra</li>
+          <li>Penumbra FF</li>
+          <li>Raiden</li>
+          <li>Rapid GT</li>
+          <li>Rapid GT Cabrio</li>
+          <li>Raptor</li>
+          <li>Revolter</li>
+          <li>Ruston</li>
+          <li>Schlagen GT</li>
+          <li>Schwartzer</li>
+          <li>Seven-70</li>
+          <li>SM722</li>
+          <li>Specter</li>
+          <li>Specter Custom</li>
+          <li>Stirling GT</li>
+          <li>Streiter</li>
+          <li>Sugoi</li>
+          <li>Sultan</li>
+          <li>Sultan Classic</li>
+          <li>Sultan RS Classic</li>
+          <li>Surano</li>
+          <li>Tropos Rallye</li>
+          <li>V-STR</li>
+          <li>Vectre</li>
+          <li>ZR350</li>
+          <li>BF Club XR</li>
+          <li>Eon</li>
+          <li>Neon CT</li>
+          <li>Schlagen R</li>
+          <li>Schlagen SP</li>
+          <li>Schwartzer S</li>
+          <li>Sapphire</li>
+          <li>Solace</li>
+          <li>TR3-S</li>
+          <li>Turismo Omaggio</li>
+          <li>FR36</li>
+          <li>Turismo GT</li>
+          <li>Mogul RS</li>
+          <li>Sultan RSx</li>
+          <li>Comet Classic</li>
+          <li>Komoda GT</li>
+        </ul>
+      </div>
+
+      <div class="category-card">
+        <h2>Véhicules : SUV</h2>
+        <ul class="vehicle-list">
+          <li>Astron</li>
+          <li>Baller</li>
+          <li>Baller S</li>
+          <li>Baller STD</li>
+          <li>Baller LE LWB</li>
+          <li>Baller ST</li>
+          <li>BeeJay XL</li>
+          <li>Cavalcade</li>
+          <li>Cavalcade XL</li>
+          <li>Contender</li>
+          <li>Dubsta</li>
+          <li>Dubsta 6x6</li>
+          <li>FQ 2</li>
+          <li>Granger</li>
+          <li>Granger 3600LX</li>
+          <li>Gresley</li>
+          <li>Huntley S</li>
+          <li>I-Wagen</li>
+          <li>Jubilee</li>
+          <li>Landstalker XL</li>
+          <li>Mesa</li>
+          <li>Novak</li>
+          <li>Patriot</li>
+          <li>Rebla GTS</li>
+          <li>Rocoto</li>
+          <li>Seminole</li>
+          <li>Seminole Frontier</li>
+          <li>Serrano</li>
+          <li>Toros</li>
+          <li>XLS</li>
+        </ul>
+      </div>
+
+      <div class="category-card">
+        <h2>Véhicules : Vans</h2>
+        <ul class="vehicle-list">
+          <li>Bison</li>
+          <li>Bobcat XL</li>
+          <li>Burrito Gang</li>
+          <li>Camper</li>
+          <li>Journey</li>
+          <li>Minivan</li>
+          <li>Minivan Custom</li>
+          <li>Paradise</li>
+          <li>Rumpo Custom</li>
+          <li>Speedo</li>
+          <li>Speedo Custom</li>
+          <li>Surfer</li>
+          <li>Youga</li>
+          <li>Youga Classic</li>
+          <li>Youga Classic 4x4</li>
+        </ul>
+      </div>
+
+      <div class="category-card">
+        <h2>Véhicules : Muscles</h2>
+        <ul class="vehicle-list">
+          <li>Dukes</li>
+          <li>Blade</li>
+          <li>Buccaneer</li>
+          <li>Buccaneer Custom</li>
+          <li>Buffalo STX</li>
+          <li>Chino</li>
+          <li>Chino Custom</li>
+          <li>Clique</li>
+          <li>Coquette BlackFin</li>
+          <li>Deviant</li>
+          <li>Dominator</li>
+          <li>Dominator ASP</li>
+          <li>Dominator GTT</li>
+          <li>Dominator GTX</li>
+          <li>Drift Yosemite</li>
+          <li>Ellie</li>
+          <li>Faction</li>
+          <li>Faction Custom</li>
+          <li>Faction Custom Donk</li>
+          <li>Gauntlet</li>
+          <li>Gauntlet Classic</li>
+          <li>Gauntlet Hellfire</li>
+          <li>Greenwood</li>
+          <li>Hermes</li>
+          <li>Hotknife</li>
+          <li>Hustler</li>
+          <li>Impaler</li>
+          <li>Lurcher</li>
+          <li>Manana Custom</li>
+          <li>Moonbeam</li>
+          <li>Moonbeam Custom</li>
+          <li>Peyote Gasser</li>
+          <li>Phoenix</li>
+          <li>Rat-Loader</li>
+          <li>Rat-Truck</li>
+          <li>Ruiner</li>
+          <li>Ruiner ZZ-8</li>
+          <li>Sabre Turbo</li>
+          <li>Sabre Turbo Custom</li>
+          <li>Slamvan Custom</li>
+          <li>Tampa</li>
+          <li>Tulip</li>
+          <li>Vamos</li>
+          <li>Vigero</li>
+          <li>Vigero ZX</li>
+          <li>Virgo</li>
+          <li>Virgo Classic</li>
+          <li>Virgo Classic Custom</li>
+          <li>Voodoo</li>
+          <li>Voodoo Custom</li>
+          <li>Weevil Custom</li>
+          <li>Yosemite</li>
+          <li>Dominator GSX</li>
+          <li>Vigero ZX Convertible</li>
+          <li>Aleutian</li>
+          <li>Impaler LX</li>
+          <li>Tahoma GT</li>
+          <li>Buffalo EVX</li>
+        </ul>
+      </div>
+
+      <div class="category-card">
+        <h2>Véhicules : Offroads</h2>
+        <ul class="vehicle-list">
+          <li>Bifta</li>
+          <li>Bodhi</li>
+          <li>Brawler</li>
+          <li>Caracara 4x4</li>
+          <li>Draugur</li>
+          <li>Dune Buggy</li>
+          <li>Everon</li>
+          <li>Freecrawler</li>
+          <li>Guardian</li>
+          <li>Hellion</li>
+          <li>Injection</li>
+          <li>Kalahari</li>
+          <li>Kamacho</li>
+          <li>Liberator</li>
+          <li>Marshall</li>
+          <li>Mesa (Merryweather)</li>
+          <li>Outlaw</li>
+          <li>Patriot Mil-Spec</li>
+          <li>Rancher XL</li>
+          <li>Rebel</li>
+          <li>Riata</li>
+          <li>Rusty Rebel</li>
+          <li>Sandking SWB</li>
+          <li>Sandking XL</li>
+          <li>Trophy Truck</li>
+          <li>Vagrant</li>
+          <li>Winky</li>
+          <li>Yosemite Rancher</li>
+          <li>Bison HF</li>
+          <li>Terminus</li>
+          <li>Cavalcade XL</li>
+          <li>Dorado</li>
+        </ul>
+      </div>
+
+      <div class="category-card">
+        <h2>Véhicules : Boutique</h2>
+        <ul class="vehicle-list">
+          <li>Bison HF</li>
+          <li>Club XR</li>
+          <li>Volatus</li>
+          <li>SuperVolito</li>
+          <li>Dominator GSX</li>
+          <li>Eon</li>
+          <li>Neon CT</li>
+          <li>Schlagen Roadster</li>
+          <li>Solace</li>
+          <li>Starlight</li>
+          <li>Sultan RSx</li>
+          <li>Comet S2+</li>
+          <li>Tempesta+</li>
+          <li>10F+</li>
+          <li>Kart 811 S2</li>
+          <li>Banshee S</li>
+          <li>Deity</li>
+          <li>Dawn</li>
+          <li>Benefactor STR Coupé</li>
+          <li>Pegassi</li>
+          <li>Cazador</li>
+          <li>FX3R</li>
+          <li>Karin Mojave</li>
+          <li>Benefactor Harmann</li>
+          <li>Grotti Milano</li>
+          <li>Maxwelli Sidewinder</li>
+          <li>Progen Emerus SB1</li>
+          <li>Bollokan Iris 7</li>
+          <li>Argento 7F</li>
+          <li>Baller 4x4</li>
+          <li>Buffalo Hellfire CTX C2</li>
+          <li>Draugur</li>
+          <li>Comet S2RC</li>
+          <li>Scooter électrique</li>
+          <li>Seminole Hellfire XL CTX</li>
+          <li>Tailgater S SR68</li>
+          <li>Tailgater SR Hatch</li>
+          <li>Toros DWN Pro</li>
+          <li>Revolteur Boutique</li>
+          <li>Jubilee</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section class="footer-note">
+      <p>
+        <strong>Note importante :</strong> cette liste définit les véhicules autorisés pour les
+        organisations illégales du serveur. Les versions customs, boutique ou modifiées peuvent
+        rester soumises à validation du staff selon le contexte RP, le lore et l’équilibrage serveur.
+      </p>
+    </section>
+  </main>
+
+</body>
+</html>
