@@ -5,295 +5,450 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BadSide RP — Véhicules illégaux</title>
   <link rel="stylesheet" href="style.css">
-</head>
 
+  <style>
+    .vehicles-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .vehicles-header {
+      background: #ececec;
+      border: 2px solid #2d5bff;
+      border-radius: 10px;
+      padding: 24px 18px 12px;
+      text-align: center;
+      color: #111;
+    }
+
+    .vehicles-header h1 {
+      margin: 0;
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      line-height: 1.1;
+    }
+
+    .vehicles-header .gang {
+      color: #e7c14f;
+    }
+
+    .vehicles-header .mafia {
+      color: #f08b00;
+    }
+
+    .vehicles-header .cartel {
+      color: #8e7bd2;
+    }
+
+    .vehicles-subtitle {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      font-weight: 900;
+    }
+
+    .vehicles-subtitle .lore {
+      color: #173cff;
+    }
+
+    .vehicles-subtitle .illegal {
+      color: #ff1f1f;
+    }
+
+    .legend-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .legend-card h2 {
+      margin: 0 0 12px;
+    }
+
+    .legend-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.04);
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .legend-color {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      border: 1px solid rgba(0,0,0,0.25);
+      display: inline-block;
+    }
+
+    .c-gang { background: #e1d390; }
+    .c-mafia { background: #d98d1e; }
+    .c-cartel { background: #8d7ac5; }
+    .c-special { background: #173cff; }
+    .c-haut { background: #ff1e1e; }
+    .c-valid { background: #34ff34; }
+
+    .vehicle-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 20px;
+      align-items: start;
+    }
+
+    .vehicle-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .vehicle-card h2 {
+      margin: 0;
+      padding: 12px 14px;
+      background: #000;
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      background: #dbe1ea;
+    }
+
+    .vehicle-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 300px;
+    }
+
+    .vehicle-table th,
+    .vehicle-table td {
+      border: 1px solid #3b3b3b;
+      text-align: center;
+      height: 30px;
+      font-size: 0.9rem;
+    }
+
+    .vehicle-table th {
+      background: #cfd6df;
+      color: #111;
+      font-weight: 700;
+      padding: 4px 6px;
+    }
+
+    .vehicle-name {
+      background: #dbe1ea;
+      color: #111;
+      text-align: left;
+      padding: 0 10px;
+      font-style: italic;
+      min-width: 170px;
+    }
+
+    .rank-cell {
+      width: 22px;
+      min-width: 22px;
+      background: #dbe1ea;
+      padding: 0;
+    }
+
+    .gang { background: #e1d390; }
+    .mafia { background: #d98d1e; }
+    .cartel { background: #8d7ac5; }
+    .special { background: #173cff; }
+    .haut { background: #ff1e1e; }
+    .valid { background: #34ff34; }
+
+    .note-box {
+      background: rgba(255,255,255,0.04);
+      border-left: 4px solid #c89b3c;
+      border-radius: 12px;
+      padding: 16px 18px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .vehicles-header h1 {
+        font-size: 2rem;
+      }
+
+      .vehicle-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
 <body>
 
-<div class="topbar">
-  <nav class="nav">
-
-    <div class="brand">
-      <img class="brand-logo" src="assets/badside.png">
-      <div class="brand-text">
-        BadSide RP
-        <small>Portail officiel du règlement</small>
+  <div class="topbar">
+    <nav class="nav">
+      <div class="brand">
+        <img class="brand-logo" src="assets/badside.png" alt="Logo BadSide">
+        <div class="brand-text">BadSide RP<small>Portail officiel du règlement</small></div>
       </div>
-    </div>
 
-    <button class="menu-toggle">Menu</button>
-
-    <div class="nav-links">
-      <a href="index.html">Accueil</a>
-      <a href="lexique.html">Lexique RP</a>
-      <a href="general.html">Général</a>
-      <a href="illegal.html">Illégal</a>
-      <a href="vehicules.html">Véhicules</a>
-      <a href="zones.html">Zones</a>
-      <a href="mortrp.html">Mort RP</a>
-      <a href="services.html">LSPD / EMS</a>
-      <a href="armes.html">Catalogue</a>
-    </div>
-
-  </nav>
-</div>
-
-
-<section class="page">
-
-<div class="hero-card">
-
-<h1 style="text-align:center;font-size:42px;">
-<span style="color:#e8c35e;">Gang</span> -
-<span style="color:#ff8800;">MAFIA</span> -
-<span style="color:#9b8cff;">Cartel</span>
-</h1>
-
-<p style="text-align:center;font-weight:bold;">
-<span style="color:#1f4cff;">Lore Compatible ONLY</span> -
-<span style="color:red;">INTERDIT ILLEGAL</span>
-</p>
-
-</div>
-
-
-<div class="section-grid">
-
-<!-- SEDANS -->
-<article class="section-card">
-
-<h2 class="section-title">Véhicules : Sedans</h2>
-
-<ul class="rules">
-<li>Asterope</li>
-<li>Cinquemila</li>
-<li>Cognoscenti</li>
-<li>Cognoscenti 55</li>
-<li>Deity</li>
-<li>Emperor</li>
-<li>Fugitive</li>
-<li>Glendale</li>
-<li>Glendale Custom</li>
-<li>Primo</li>
-<li>Primo Custom</li>
-<li>Rhinehart</li>
-<li>Schafter</li>
-<li>Schafter LWB</li>
-<li>Schafter V12</li>
-<li>Stafford</li>
-<li>Super Diamond</li>
-<li>Surge</li>
-<li>Tailgater S</li>
-<li>Warrener</li>
-<li>Washington</li>
-<li>Impaler SZ</li>
-</ul>
-
-</article>
-
-
-<!-- COUPES -->
-
-<article class="section-card">
-
-<h2 class="section-title">Véhicules : Coupés</h2>
-
-<ul class="rules">
-
-<li>Cognoscenti Cabrio</li>
-<li>Exemplar</li>
-<li>F620</li>
-<li>Felon</li>
-<li>Felon GT</li>
-<li>Jackal</li>
-<li>Oracle</li>
-<li>Oracle XS</li>
-<li>Sentinel classique</li>
-<li>Sentinel</li>
-<li>Sentinel XS</li>
-<li>Windsor</li>
-<li>Windsor Drop</li>
-<li>Zion</li>
-<li>Zion Cabrio</li>
-<li>Scharmann</li>
-<li>Buffalo STX</li>
-
-</ul>
-
-</article>
-
-
-<!-- SPORTS -->
-
-<article class="section-card">
-
-<h2 class="section-title">Véhicules : Sports</h2>
-
-<ul class="rules">
-
-<li>10F</li>
-<li>10F Widebody</li>
-<li>8F Drafter</li>
-<li>9F</li>
-<li>9F Cabrio</li>
-<li>Alpha</li>
-<li>Banshee</li>
-<li>Bestia GTS</li>
-<li>Buffalo</li>
-<li>Buffalo S</li>
-<li>Calico GTF</li>
-<li>Carbonizzare</li>
-<li>Comet</li>
-<li>Comet Retro Custom</li>
-<li>Comet S2</li>
-<li>Comet S2 Cabrio</li>
-<li>Comet Safari</li>
-<li>Comet SR</li>
-<li>Coquette</li>
-<li>Coquette D10</li>
-<li>Corsita</li>
-<li>Cypher</li>
-
-</ul>
-
-</article>
-
-
-<!-- SUV -->
-
-<article class="section-card">
-
-<h2 class="section-title">Véhicules : SUV</h2>
-
-<ul class="rules">
-
-<li>Astron</li>
-<li>Baller</li>
-<li>Baller S</li>
-<li>Baller STD</li>
-<li>Baller LE LWB</li>
-<li>Baller ST</li>
-<li>BeeJay XL</li>
-<li>Cavalcade</li>
-<li>Cavalcade XL</li>
-<li>Contender</li>
-<li>Dubsta</li>
-<li>Dubsta 6x6</li>
-<li>FQ2</li>
-<li>Granger</li>
-<li>Granger 3600LX</li>
-<li>Gresley</li>
-<li>Huntley S</li>
-<li>I-Wagen</li>
-<li>Jubilee</li>
-<li>Landstalker XL</li>
-
-</ul>
-
-</article>
-
-
-<!-- VANS -->
-
-<article class="section-card">
-
-<h2 class="section-title">Véhicules : Vans</h2>
-
-<ul class="rules">
-
-<li>Bison</li>
-<li>Bobcat XL</li>
-<li>Burrito Gang</li>
-<li>Camper</li>
-<li>Journey</li>
-<li>Minivan</li>
-<li>Minivan Custom</li>
-<li>Paradise</li>
-<li>Rumpo Custom</li>
-<li>Speedo</li>
-<li>Speedo Custom</li>
-<li>Surfer</li>
-<li>Youga</li>
-<li>Youga Classic</li>
-<li>Youga Classic 4x4</li>
-
-</ul>
-
-</article>
-
-
-<!-- MUSCLES -->
-
-<article class="section-card">
-
-<h2 class="section-title">Véhicules : Muscles</h2>
-
-<ul class="rules">
-
-<li>Dukes</li>
-<li>Blade</li>
-<li>Buccaneer</li>
-<li>Buccaneer Custom</li>
-<li>Buffalo STX</li>
-<li>Chino</li>
-<li>Chino Custom</li>
-<li>Clique</li>
-<li>Coquette BlackFin</li>
-<li>Deviant</li>
-<li>Dominator</li>
-<li>Dominator ASP</li>
-<li>Dominator GTT</li>
-<li>Dominator GTX</li>
-<li>Drift Yosemite</li>
-<li>Ellie</li>
-<li>Faction</li>
-
-</ul>
-
-</article>
-
-
-<!-- OFFROADS -->
-
-<article class="section-card">
-
-<h2 class="section-title">Véhicules : Offroads</h2>
-
-<ul class="rules">
-
-<li>Bifta</li>
-<li>Bodhi</li>
-<li>Brawler</li>
-<li>Caracara 4x4</li>
-<li>Draugur</li>
-<li>Dune Buggy</li>
-<li>Everon</li>
-<li>Freecrawler</li>
-<li>Guardian</li>
-<li>Hellion</li>
-<li>Injection</li>
-<li>Kalahari</li>
-<li>Kamacho</li>
-<li>Liberator</li>
-<li>Marshall</li>
-<li>Mesa (Merryweather)</li>
-<li>Outlaw</li>
-
-</ul>
-
-</article>
-
-</div>
-
-</section>
-
-
-<div class="footer">
-  <div class="footer-card">
-    BadSide RP — Portail officiel du règlement
+      <button class="menu-toggle">Menu</button>
+
+      <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="lexique.html">Lexique RP</a>
+        <a href="general.html">Général</a>
+        <a href="illegal.html">Illégal</a>
+        <a href="vehicules.html">Véhicules</a>
+        <a href="zones.html">Zones</a>
+        <a href="mortrp.html">Mort RP</a>
+        <a href="services.html">LSPD / EMS</a>
+        <a href="armes.html">Catalogue</a>
+      </div>
+    </nav>
   </div>
-</div>
 
-<script src="script.js"></script>
+  <section class="page">
+    <div class="vehicles-wrapper">
 
+      <div class="vehicles-header">
+        <h1>
+          <span class="gang">Gang</span> -
+          <span class="mafia">MAFIA</span> -
+          <span class="cartel">Cartel</span>
+        </h1>
+        <div class="vehicles-subtitle">
+          <span class="lore">Lore Compatible ONLY</span> -
+          <span class="illegal">INTERDIT ILLEGAL</span>
+        </div>
+      </div>
+
+      <div class="legend-card">
+        <h2 class="section-title">Lecture de la hiérarchie</h2>
+        <div class="legend-list">
+          <div class="legend-item"><span class="legend-color c-gang"></span> Autorisé Gang</div>
+          <div class="legend-item"><span class="legend-color c-mafia"></span> Autorisé Mafia</div>
+          <div class="legend-item"><span class="legend-color c-cartel"></span> Autorisé Cartel</div>
+          <div class="legend-item"><span class="legend-color c-special"></span> Exception / validation</div>
+          <div class="legend-item"><span class="legend-color c-haut"></span> Très haut de gamme</div>
+          <div class="legend-item"><span class="legend-color c-valid"></span> Cas validé</div>
+        </div>
+      </div>
+
+      <div class="vehicle-grid">
+
+        <!-- SEDANS -->
+        <article class="vehicle-card">
+          <h2>Véhicule : Sedans</h2>
+          <div class="table-wrap">
+            <table class="vehicle-table">
+              <thead>
+                <tr>
+                  <th>Véhicule</th>
+                  <th>G</th>
+                  <th>M</th>
+                  <th>C</th>
+                  <th>+</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="vehicle-name">Asterope</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Cinquemila</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Cognoscenti</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Cognoscenti 55</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Deity</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Emperor</td><td class="rank-cell special"></td><td class="rank-cell special"></td><td class="rank-cell special"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Fugitive</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Glendale</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Glendale Custom</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Primo</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Primo Custom</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Rhinehart</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Schafter</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Schafter LWB</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Schafter V12</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Stafford</td><td class="rank-cell special"></td><td class="rank-cell special"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Super Diamond</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Surge</td><td class="rank-cell haut"></td><td class="rank-cell haut"></td><td class="rank-cell haut"></td><td class="rank-cell"></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <!-- COUPES -->
+        <article class="vehicle-card">
+          <h2>Véhicule : Coupés</h2>
+          <div class="table-wrap">
+            <table class="vehicle-table">
+              <thead>
+                <tr>
+                  <th>Véhicule</th>
+                  <th>G</th>
+                  <th>M</th>
+                  <th>C</th>
+                  <th>+</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="vehicle-name">Cognoscenti Cabrio</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Exemplar</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">F620</td><td class="rank-cell haut"></td><td class="rank-cell haut"></td><td class="rank-cell haut"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Felon</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Felon GT</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Jackal</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Oracle</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Oracle XS</td><td class="rank-cell gang"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Sentinel</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Windsor</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Zion</td><td class="rank-cell haut"></td><td class="rank-cell haut"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Zion Cabrio</td><td class="rank-cell haut"></td><td class="rank-cell haut"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Scharmann</td><td class="rank-cell gang"></td><td class="rank-cell gang"></td><td class="rank-cell gang"></td><td class="rank-cell gang"></td></tr>
+                <tr><td class="vehicle-name">Buffalo STX</td><td class="rank-cell gang"></td><td class="rank-cell gang"></td><td class="rank-cell gang"></td><td class="rank-cell gang"></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <!-- SPORTS -->
+        <article class="vehicle-card">
+          <h2>Véhicule : Sports</h2>
+          <div class="table-wrap">
+            <table class="vehicle-table">
+              <thead>
+                <tr>
+                  <th>Véhicule</th>
+                  <th>G</th>
+                  <th>M</th>
+                  <th>C</th>
+                  <th>+</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="vehicle-name">10F</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
+                <tr><td class="vehicle-name">10F Widebody</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
+                <tr><td class="vehicle-name">8F Drafter</td><td class="rank-cell special"></td><td class="rank-cell special"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">9F</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
+                <tr><td class="vehicle-name">9F Cabrio</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
+                <tr><td class="vehicle-name">Alpha</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Banshee</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
+                <tr><td class="vehicle-name">Bestia GTS</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
+                <tr><td class="vehicle-name">Buffalo</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Buffalo S</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Calico GTF</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
+                <tr><td class="vehicle-name">Carbonizzare</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
+                <tr><td class="vehicle-name">Comet</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
+                <tr><td class="vehicle-name">Comet S2</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
+                <tr><td class="vehicle-name">Cypher</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Feltzer</td><td class="rank-cell special"></td><td class="rank-cell special"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Futo</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Growler</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
+                <tr><td class="vehicle-name">Jugular</td><td class="rank-cell gang"></td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Kuruma</td><td class="rank-cell special"></td><td class="rank-cell special"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Neon</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
+                <tr><td class="vehicle-name">Paragon R</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell gang"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Pariah</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
+                <tr><td class="vehicle-name">Sultan</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Sultan Classic</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
+                <tr><td class="vehicle-name">V-STR</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">ZR350</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <!-- SUV -->
+        <article class="vehicle-card">
+          <h2>Véhicule : SUV</h2>
+          <div class="table-wrap">
+            <table class="vehicle-table">
+              <thead>
+                <tr>
+                  <th>Véhicule</th>
+                  <th>G</th>
+                  <th>M</th>
+                  <th>C</th>
+                  <th>+</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="vehicle-name">Astron</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Baller</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Baller S</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Baller STD</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Baller LE LWB</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Baller ST</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">BeeJay XL</td><td class="rank-cell special"></td><td class="rank-cell special"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Cavalcade</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Cavalcade XL</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Contender</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Dubsta</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Dubsta 6x6</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">FQ2</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Granger</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
+                <tr><td class="vehicle-name">Granger 3600LX</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
+                <tr><td class="vehicle-name">Gresley</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Huntley S</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">I-Wagen</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell haut"></td></tr>
+                <tr><td class="vehicle-name">Jubilee</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <!-- VANS -->
+        <article class="vehicle-card">
+          <h2>Véhicule : Vans</h2>
+          <div class="table-wrap">
+            <table class="vehicle-table">
+              <thead>
+                <tr>
+                  <th>Véhicule</th>
+                  <th>G</th>
+                  <th>M</th>
+                  <th>C</th>
+                  <th>+</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="vehicle-name">Bison</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Bobcat XL</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Burrito Gang</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Camper</td><td class="rank-cell special"></td><td class="rank-cell special"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Journey</td><td class="rank-cell special"></td><td class="rank-cell special"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Minivan</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Minivan Custom</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Paradise</td><td class="rank-cell special"></td><td class="rank-cell special"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Rumpo Custom</td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell cartel"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Speedo</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Speedo Custom</td><td class="rank-cell"></td><td class="rank-cell mafia"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Surfer</td><td class="rank-cell special"></td><td class="rank-cell special"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+                <tr><td class="vehicle-name">Youga</td><td class="rank-cell gang"></td><td class="rank-cell"></td><td class="rank-cell"></td><td class="rank-cell"></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="note-box">
+        Cette version remet bien la logique de hiérarchie : les véhicules très haut de gamme ne sont plus “ouverts à tout le monde”.
+        Un gang regarde sa colonne, une mafia la sienne, un cartel la sienne, et les cas spéciaux restent à validation.
+      </div>
+
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="footer-card">BadSide RP — Portail officiel du règlement</div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
