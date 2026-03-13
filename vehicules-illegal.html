@@ -5,670 +5,295 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BadSide RP — Véhicules illégaux</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    .page-header {
-      margin-bottom: 24px;
-    }
-
-    .page-title-card {
-      background: linear-gradient(135deg, rgba(18,18,18,0.95), rgba(30,30,30,0.92));
-      border: 1px solid rgba(255,255,255,0.08);
-      border-left: 4px solid #c89b3c;
-      border-radius: 18px;
-      padding: 26px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-    }
-
-    .page-title-card h1 {
-      margin: 0 0 10px;
-      font-size: 2rem;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .page-title-card h1 span {
-      color: #c89b3c;
-    }
-
-    .page-title-card p {
-      margin: 0;
-      color: #d8d8d8;
-      line-height: 1.6;
-    }
-
-    .warning-card,
-    .legend-card,
-    .note-card {
-      background: rgba(18,18,18,0.95);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 18px 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.18);
-    }
-
-    .warning-card {
-      border-left: 4px solid #d63a3a;
-    }
-
-    .warning-card strong {
-      color: #fff;
-    }
-
-    .legend-title,
-    .note-title {
-      margin: 0 0 12px;
-      color: #fff;
-      font-size: 1.05rem;
-      text-transform: uppercase;
-    }
-
-    .legend-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 10px;
-      padding: 8px 12px;
-      color: #e8e8e8;
-      font-size: 0.95rem;
-    }
-
-    .dot {
-      width: 14px;
-      height: 14px;
-      border-radius: 4px;
-      display: inline-block;
-      border: 1px solid rgba(255,255,255,0.18);
-    }
-
-    .h1-color { background: #d8cc94; }
-    .h2-color { background: #d58f1e; }
-    .h3-color { background: #6e63b6; }
-    .h4-color { background: #e31b23; }
-    .special-color { background: #1736ff; }
-    .none-color { background: transparent; }
-
-    .vehicle-sections {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-      gap: 22px;
-    }
-
-    .vehicle-card {
-      background: rgba(15,15,15,0.96);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.22);
-    }
-
-    .vehicle-card h2 {
-      margin: 0;
-      padding: 14px 18px;
-      background: linear-gradient(135deg, #071226, #0f2346);
-      color: #fff;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .vehicle-table-wrap {
-      overflow-x: auto;
-    }
-
-    .vehicle-table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 320px;
-    }
-
-    .vehicle-table th,
-    .vehicle-table td {
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      padding: 9px 10px;
-      text-align: center;
-    }
-
-    .vehicle-table th {
-      background: rgba(255,255,255,0.03);
-      color: #f1f1f1;
-      font-size: 0.82rem;
-      text-transform: uppercase;
-    }
-
-    .vehicle-table td:first-child,
-    .vehicle-table th:first-child {
-      text-align: left;
-      padding-left: 16px;
-    }
-
-    .vehicle-name {
-      color: #ededed;
-      font-size: 0.95rem;
-    }
-
-    .rank-box {
-      width: 18px;
-      height: 18px;
-      border-radius: 4px;
-      margin: 0 auto;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: transparent;
-    }
-
-    .rank-h1 { background: #d8cc94; }
-    .rank-h2 { background: #d58f1e; }
-    .rank-h3 { background: #6e63b6; }
-    .rank-h4 { background: #e31b23; }
-    .rank-special { background: #1736ff; }
-
-    .note-card p {
-      margin: 0;
-      color: #d8d8d8;
-      line-height: 1.6;
-    }
-
-    @media (max-width: 768px) {
-      .vehicle-sections {
-        grid-template-columns: 1fr;
-      }
-
-      .page-title-card h1 {
-        font-size: 1.6rem;
-      }
-    }
-  </style>
 </head>
+
 <body>
 
-  <div class="topbar">
-    <nav class="nav">
-      <div class="brand">
-        <img class="brand-logo" src="assets/badside.png" alt="Logo BadSide">
-        <div class="brand-text">BadSide RP<small>Portail officiel du règlement</small></div>
-      </div>
-      <button class="menu-toggle">Menu</button>
+<div class="topbar">
+  <nav class="nav">
 
-      <div class="nav-links">
-        <a href="index.html">Accueil</a>
-        <a href="lexique.html">Lexique RP</a>
-        <a href="general.html">Général</a>
-        <a href="illegal.html">Illégal</a>
-        <a href="vehicules-illegal.html">Véhicules</a>
-        <a href="zones.html">Zones</a>
-        <a href="mortrp.html">Mort RP</a>
-        <a href="services.html">LSPD / EMS</a>
-        <a href="armes.html">Catalogue</a>
+    <div class="brand">
+      <img class="brand-logo" src="assets/badside.png">
+      <div class="brand-text">
+        BadSide RP
+        <small>Portail officiel du règlement</small>
       </div>
-    </nav>
+    </div>
+
+    <button class="menu-toggle">Menu</button>
+
+    <div class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="lexique.html">Lexique RP</a>
+      <a href="general.html">Général</a>
+      <a href="illegal.html">Illégal</a>
+      <a href="vehicules.html">Véhicules</a>
+      <a href="zones.html">Zones</a>
+      <a href="mortrp.html">Mort RP</a>
+      <a href="services.html">LSPD / EMS</a>
+      <a href="armes.html">Catalogue</a>
+    </div>
+
+  </nav>
+</div>
+
+
+<section class="page">
+
+<div class="hero-card">
+
+<h1 style="text-align:center;font-size:42px;">
+<span style="color:#e8c35e;">Gang</span> -
+<span style="color:#ff8800;">MAFIA</span> -
+<span style="color:#9b8cff;">Cartel</span>
+</h1>
+
+<p style="text-align:center;font-weight:bold;">
+<span style="color:#1f4cff;">Lore Compatible ONLY</span> -
+<span style="color:red;">INTERDIT ILLEGAL</span>
+</p>
+
+</div>
+
+
+<div class="section-grid">
+
+<!-- SEDANS -->
+<article class="section-card">
+
+<h2 class="section-title">Véhicules : Sedans</h2>
+
+<ul class="rules">
+<li>Asterope</li>
+<li>Cinquemila</li>
+<li>Cognoscenti</li>
+<li>Cognoscenti 55</li>
+<li>Deity</li>
+<li>Emperor</li>
+<li>Fugitive</li>
+<li>Glendale</li>
+<li>Glendale Custom</li>
+<li>Primo</li>
+<li>Primo Custom</li>
+<li>Rhinehart</li>
+<li>Schafter</li>
+<li>Schafter LWB</li>
+<li>Schafter V12</li>
+<li>Stafford</li>
+<li>Super Diamond</li>
+<li>Surge</li>
+<li>Tailgater S</li>
+<li>Warrener</li>
+<li>Washington</li>
+<li>Impaler SZ</li>
+</ul>
+
+</article>
+
+
+<!-- COUPES -->
+
+<article class="section-card">
+
+<h2 class="section-title">Véhicules : Coupés</h2>
+
+<ul class="rules">
+
+<li>Cognoscenti Cabrio</li>
+<li>Exemplar</li>
+<li>F620</li>
+<li>Felon</li>
+<li>Felon GT</li>
+<li>Jackal</li>
+<li>Oracle</li>
+<li>Oracle XS</li>
+<li>Sentinel classique</li>
+<li>Sentinel</li>
+<li>Sentinel XS</li>
+<li>Windsor</li>
+<li>Windsor Drop</li>
+<li>Zion</li>
+<li>Zion Cabrio</li>
+<li>Scharmann</li>
+<li>Buffalo STX</li>
+
+</ul>
+
+</article>
+
+
+<!-- SPORTS -->
+
+<article class="section-card">
+
+<h2 class="section-title">Véhicules : Sports</h2>
+
+<ul class="rules">
+
+<li>10F</li>
+<li>10F Widebody</li>
+<li>8F Drafter</li>
+<li>9F</li>
+<li>9F Cabrio</li>
+<li>Alpha</li>
+<li>Banshee</li>
+<li>Bestia GTS</li>
+<li>Buffalo</li>
+<li>Buffalo S</li>
+<li>Calico GTF</li>
+<li>Carbonizzare</li>
+<li>Comet</li>
+<li>Comet Retro Custom</li>
+<li>Comet S2</li>
+<li>Comet S2 Cabrio</li>
+<li>Comet Safari</li>
+<li>Comet SR</li>
+<li>Coquette</li>
+<li>Coquette D10</li>
+<li>Corsita</li>
+<li>Cypher</li>
+
+</ul>
+
+</article>
+
+
+<!-- SUV -->
+
+<article class="section-card">
+
+<h2 class="section-title">Véhicules : SUV</h2>
+
+<ul class="rules">
+
+<li>Astron</li>
+<li>Baller</li>
+<li>Baller S</li>
+<li>Baller STD</li>
+<li>Baller LE LWB</li>
+<li>Baller ST</li>
+<li>BeeJay XL</li>
+<li>Cavalcade</li>
+<li>Cavalcade XL</li>
+<li>Contender</li>
+<li>Dubsta</li>
+<li>Dubsta 6x6</li>
+<li>FQ2</li>
+<li>Granger</li>
+<li>Granger 3600LX</li>
+<li>Gresley</li>
+<li>Huntley S</li>
+<li>I-Wagen</li>
+<li>Jubilee</li>
+<li>Landstalker XL</li>
+
+</ul>
+
+</article>
+
+
+<!-- VANS -->
+
+<article class="section-card">
+
+<h2 class="section-title">Véhicules : Vans</h2>
+
+<ul class="rules">
+
+<li>Bison</li>
+<li>Bobcat XL</li>
+<li>Burrito Gang</li>
+<li>Camper</li>
+<li>Journey</li>
+<li>Minivan</li>
+<li>Minivan Custom</li>
+<li>Paradise</li>
+<li>Rumpo Custom</li>
+<li>Speedo</li>
+<li>Speedo Custom</li>
+<li>Surfer</li>
+<li>Youga</li>
+<li>Youga Classic</li>
+<li>Youga Classic 4x4</li>
+
+</ul>
+
+</article>
+
+
+<!-- MUSCLES -->
+
+<article class="section-card">
+
+<h2 class="section-title">Véhicules : Muscles</h2>
+
+<ul class="rules">
+
+<li>Dukes</li>
+<li>Blade</li>
+<li>Buccaneer</li>
+<li>Buccaneer Custom</li>
+<li>Buffalo STX</li>
+<li>Chino</li>
+<li>Chino Custom</li>
+<li>Clique</li>
+<li>Coquette BlackFin</li>
+<li>Deviant</li>
+<li>Dominator</li>
+<li>Dominator ASP</li>
+<li>Dominator GTT</li>
+<li>Dominator GTX</li>
+<li>Drift Yosemite</li>
+<li>Ellie</li>
+<li>Faction</li>
+
+</ul>
+
+</article>
+
+
+<!-- OFFROADS -->
+
+<article class="section-card">
+
+<h2 class="section-title">Véhicules : Offroads</h2>
+
+<ul class="rules">
+
+<li>Bifta</li>
+<li>Bodhi</li>
+<li>Brawler</li>
+<li>Caracara 4x4</li>
+<li>Draugur</li>
+<li>Dune Buggy</li>
+<li>Everon</li>
+<li>Freecrawler</li>
+<li>Guardian</li>
+<li>Hellion</li>
+<li>Injection</li>
+<li>Kalahari</li>
+<li>Kamacho</li>
+<li>Liberator</li>
+<li>Marshall</li>
+<li>Mesa (Merryweather)</li>
+<li>Outlaw</li>
+
+</ul>
+
+</article>
+
+</div>
+
+</section>
+
+
+<div class="footer">
+  <div class="footer-card">
+    BadSide RP — Portail officiel du règlement
   </div>
+</div>
 
-  <section class="page">
-    <div class="page-header">
-      <div class="page-title-card">
-        <h1>Véhicules <span>Gang / Mafia / Cartel</span></h1>
-        <p>
-          Liste des véhicules autorisés pour l’illégal avec une lecture par catégorie et par hiérarchie.
-          La catégorie <strong>Boutique</strong> n’est pas incluse sur cette page.
-        </p>
-      </div>
-    </div>
+<script src="script.js"></script>
 
-    <div class="warning-card">
-      <strong>Lore compatible uniquement :</strong> tout véhicule non listé ici peut être refusé ou soumis à validation staff.
-    </div>
-
-    <div class="legend-card">
-      <h3 class="legend-title">Légende hiérarchie</h3>
-      <div class="legend-grid">
-        <div class="legend-item"><span class="dot h1-color"></span> H1</div>
-        <div class="legend-item"><span class="dot h2-color"></span> H2</div>
-        <div class="legend-item"><span class="dot h3-color"></span> H3</div>
-        <div class="legend-item"><span class="dot h4-color"></span> H4</div>
-        <div class="legend-item"><span class="dot special-color"></span> Exception / spécial</div>
-      </div>
-    </div>
-
-    <div class="vehicle-sections">
-
-      <!-- SEDANS -->
-      <article class="vehicle-card">
-        <h2>Véhicule : Sedans</h2>
-        <div class="vehicle-table-wrap">
-          <table class="vehicle-table">
-            <thead>
-              <tr>
-                <th>Véhicule</th>
-                <th>H1</th>
-                <th>H2</th>
-                <th>H3</th>
-                <th>H4</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td class="vehicle-name">Asterope</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Cinquemila</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Cognoscenti</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Cognoscenti 55</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Deity</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Emperor</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Fugitive</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Glendale</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Glendale Custom</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Primo</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Primo Custom</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Rhinehart</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Schafter</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Schafter LWB</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Schafter V12</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Stafford</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Super Diamond</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Surge</td><td><div class="rank-box rank-h4"></div></td><td><div class="rank-box rank-h4"></div></td><td><div class="rank-box rank-h4"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Tailgater S</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Warrener</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Washington</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Impaler SZ</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </article>
-
-      <!-- COUPES -->
-      <article class="vehicle-card">
-        <h2>Véhicule : Coupés</h2>
-        <div class="vehicle-table-wrap">
-          <table class="vehicle-table">
-            <thead>
-              <tr>
-                <th>Véhicule</th>
-                <th>H1</th>
-                <th>H2</th>
-                <th>H3</th>
-                <th>H4</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td class="vehicle-name">Cognoscenti Cabrio</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Exemplar</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">F620</td><td><div class="rank-box rank-h4"></div></td><td><div class="rank-box rank-h4"></div></td><td><div class="rank-box rank-h4"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Felon</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Felon GT</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Jackal</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Oracle</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Oracle XS</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Sentinel Classique</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Sentinel</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Sentinel XS</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Windsor</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Windsor Drop</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Zion</td><td><div class="rank-box rank-h4"></div></td><td><div class="rank-box rank-h4"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Zion Cabrio</td><td><div class="rank-box rank-h4"></div></td><td><div class="rank-box rank-h4"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Scharmann</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box rank-h1"></div></td></tr>
-              <tr><td class="vehicle-name">Buffalo STX</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box rank-h1"></div></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </article>
-
-      <!-- SPORTS -->
-      <article class="vehicle-card">
-        <h2>Véhicule : Sports</h2>
-        <div class="vehicle-table-wrap">
-          <table class="vehicle-table">
-            <thead>
-              <tr>
-                <th>Véhicule</th>
-                <th>H1</th>
-                <th>H2</th>
-                <th>H3</th>
-                <th>H4</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td class="vehicle-name">10F</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">10F Widebody</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">8F Drafter</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">9F</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">9F Cabrio</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Alpha</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Banshee</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Bestia GTS</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Buffalo</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Buffalo S</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Calico GTF</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Carbonizzare</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Comet</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Comet Retro Custom</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Comet S2</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Comet S2 Cabrio</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Comet Safari</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Comet SR</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Coquette</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Coquette D10</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Corsita</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Cypher</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Elegy Retro Custom</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Elegy RH8</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Euros</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Feltzer</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Flash GT</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Furore GT</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Fusilade</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Futo</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Futo GTX</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">GB200</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Growler</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Imorgon</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Issi Sport</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Itali GTO</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Itali RSX</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Jester</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Jester (Racecar)</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Jester Classic</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Jester RR</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Jugular</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Khamelion</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Komoda</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Kuruma</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Locust</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Lynx</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Massacro</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Neo</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Neon</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Omnis</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Omnis e-GT</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Paragon R</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Pariah</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Penumbra</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Penumbra FF</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Raiden</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Rapid GT</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Rapid GT Cabrio</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Raptor</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Revolter</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Ruston</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Schlagen GT</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Schwartzer</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Seven-70</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">SM722</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Specter</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Specter Custom</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Stirling GT</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Streiter</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Sugoi</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Sultan</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Sultan Classic</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Sultan RS Classic</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Surano</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Tropos Rallye</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">V-STR</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Vectre</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">ZR350</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">BF Club XR</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Eon</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Neon CT</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Schlagen R</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Schlagen SP</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Schwartzer S</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Sapphire</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Solace</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">TR3-S</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Turismo Omaggio</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">FR36</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Turismo GT</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Mogul RS</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Sultan RSx</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Comet Classic</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Komoda GT</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </article>
-
-      <!-- SUV -->
-      <article class="vehicle-card">
-        <h2>Véhicule : SUV</h2>
-        <div class="vehicle-table-wrap">
-          <table class="vehicle-table">
-            <thead>
-              <tr>
-                <th>Véhicule</th>
-                <th>H1</th>
-                <th>H2</th>
-                <th>H3</th>
-                <th>H4</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td class="vehicle-name">Astron</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Baller</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Baller S</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Baller STD</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Baller LE LWB</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Baller ST</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">BeeJay XL</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Cavalcade</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Cavalcade XL</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Contender</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Dubsta</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Dubsta 6x6</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">FQ 2</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Granger</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Granger 3600LX</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Gresley</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Huntley S</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">I-Wagen</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Jubilee</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Landstalker XL</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Mesa</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Novak</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Patriot</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Rebla GTS</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Rocoto</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Seminole</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Seminole Frontier</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Serrano</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Toros</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">XLS</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Starlight</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </article>
-
-      <!-- VANS -->
-      <article class="vehicle-card">
-        <h2>Véhicule : Vans</h2>
-        <div class="vehicle-table-wrap">
-          <table class="vehicle-table">
-            <thead>
-              <tr>
-                <th>Véhicule</th>
-                <th>H1</th>
-                <th>H2</th>
-                <th>H3</th>
-                <th>H4</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td class="vehicle-name">Bison</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Bobcat XL</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Burrito Gang</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Camper</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Journey</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Minivan</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Minivan Custom</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Paradise</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Rumpo Custom</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Speedo</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Speedo Custom</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Surfer</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Youga</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Youga Classic</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Youga Classic 4x4</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </article>
-
-      <!-- MUSCLES -->
-      <article class="vehicle-card">
-        <h2>Véhicule : Muscles</h2>
-        <div class="vehicle-table-wrap">
-          <table class="vehicle-table">
-            <thead>
-              <tr>
-                <th>Véhicule</th>
-                <th>H1</th>
-                <th>H2</th>
-                <th>H3</th>
-                <th>H4</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td class="vehicle-name">Dukes</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Blade</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Buccaneer</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Buccaneer Custom</td><td><div class="rank-box rank-h4"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Buffalo STX</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Chino</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Chino Custom</td><td><div class="rank-box rank-h4"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Clique</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Coquette BlackFin</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Deviant</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Dominator</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Dominator ASP</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Dominator GTT</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Dominator GTX</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Drift Yosemite</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Ellie</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Faction</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Faction Custom</td><td><div class="rank-box rank-h4"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Faction Custom Donk</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Gauntlet</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Gauntlet Classic</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Gauntlet Hellfire</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Greenwood</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Hermes</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Hotknife</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Hustler</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Impaler</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Lurcher</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Manana Custom</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Moonbeam</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Moonbeam Custom</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Peyote Gasser</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Phoenix</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Rat-Loader</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Rat-Truck</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Ruiner</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Ruiner ZZ-8</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Sabre Turbo</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Sabre Turbo Custom</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Slamvan Custom</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Tampa</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Tulip</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Vamos</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Vigero</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Vigero ZX</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Virgo</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Virgo Classic</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Virgo Classic Custom</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Voodoo</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Voodoo Custom</td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Weevil Custom</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Yosemite</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Dominator GSX</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Vigero ZX Convertible</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Aleutian</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Impaler LX</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Tahoma GT</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Buffalo EVX</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </article>
-
-      <!-- OFFROADS -->
-      <article class="vehicle-card">
-        <h2>Véhicule : Offroads</h2>
-        <div class="vehicle-table-wrap">
-          <table class="vehicle-table">
-            <thead>
-              <tr>
-                <th>Véhicule</th>
-                <th>H1</th>
-                <th>H2</th>
-                <th>H3</th>
-                <th>H4</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td class="vehicle-name">Bifta</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-special"></div></td></tr>
-              <tr><td class="vehicle-name">Bodhi</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-special"></div></td></tr>
-              <tr><td class="vehicle-name">Brawler</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-special"></div></td></tr>
-              <tr><td class="vehicle-name">Caracara 4x4</td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Draugur</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Dune Buggy</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Everon</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Freecrawler</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Guardian</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Hellion</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-special"></div></td></tr>
-              <tr><td class="vehicle-name">Injection</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Kalahari</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-special"></div></td></tr>
-              <tr><td class="vehicle-name">Kamacho</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-special"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Liberator</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Marshall</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Mesa (Merryweather)</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Outlaw</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Patriot Mil-Spec</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-special"></div></td></tr>
-              <tr><td class="vehicle-name">Rancher XL</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Rebel</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-special"></div></td></tr>
-              <tr><td class="vehicle-name">Riata</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Rusty Rebel</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-special"></div></td></tr>
-              <tr><td class="vehicle-name">Sandking SWB</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Sandking XL</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Trophy Truck</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Vagrant</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Winky</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-special"></div></td></tr>
-              <tr><td class="vehicle-name">Yosemite Rancher</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Bison HF</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Terminus</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h3"></div></td><td><div class="rank-box"></div></td></tr>
-              <tr><td class="vehicle-name">Cavalcade XL</td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box rank-h4"></div></td></tr>
-              <tr><td class="vehicle-name">Dorado</td><td><div class="rank-box rank-h1"></div></td><td><div class="rank-box rank-h2"></div></td><td><div class="rank-box"></div></td><td><div class="rank-box"></div></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </article>
-
-    </div>
-
-    <div class="note-card" style="margin-top: 24px;">
-      <h3 class="note-title">Note</h3>
-      <p>
-        J’ai retiré toute la partie <strong>Boutique</strong> comme tu l’as demandé.
-        Si tu veux, je peux maintenant te refaire une <strong>version 100 % exacte avec les vrais noms de hiérarchie</strong>
-        à la place de H1 / H2 / H3 / H4.
-      </p>
-    </div>
-  </section>
-
-  <div class="footer">
-    <div class="footer-card">BadSide RP — Portail officiel du règlement</div>
-  </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
-
-
